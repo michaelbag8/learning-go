@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strconv"
+	"strings"
 )
 
 func hexToDecimal(s string) string {
@@ -24,13 +25,21 @@ func binToDecimal(s string) string {
 }
 
 func toDecimal(word string, base int) string {
+	original := word
 	word = strings.TrimSpace(word)
+
+	negative := false
 	if strings.HasPrefix(word, "-") {
-		word = strings.Trim(word, "-")
+		negative = true
+		word = strings.TrimPrefix(word, "-")
 	}
+
 	data, err := strconv.ParseInt(word, base, 64)
 	if err != nil {
-		return word
+		return original
+	}
+	if negative{
+		data = -data
 	}
 
 	return strconv.Itoa(int(data))
