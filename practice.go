@@ -64,6 +64,25 @@ func primeNumbers(max int) []int{
 	return primes
 }
 
+func sumOfPrimeNumbers(n int) int{
+	var primes int
+
+	for i:=2; i< n; i++{
+		isPrime := true
+
+		for j:=2; j <= int(math.Sqrt(float64(i))); j++{
+			if i%2 == 0{
+				isPrime = false
+				break
+			}
+		}
+		if isPrime{
+			primes += i
+		}
+	}
+	return primes
+}
+
 func main() {
 	fmt.Println("---------------Multiplication Table -------------")
 
@@ -97,6 +116,10 @@ func main() {
 	fmt.Printf("unique word: %d\n", len(word))
 
 	fmt.Println("-------Prime Numbers------")
-	fmt.Println(primeNumbers(10))
+	fmt.Println(primeNumbers(20))
+
+
+	fmt.Println("----Sum of Prime of Numbers----")
+	fmt.Println(sumOfPrimeNumbers(20))
 
 }
