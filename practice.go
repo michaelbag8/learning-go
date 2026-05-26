@@ -52,7 +52,7 @@ func primeNumbers(max int) []int{
 		isPrime := true
 
 		for j:= 2; j <= int(math.Sqrt(float64(i))); j++{
-			if i % 2 == 0{
+			if i % j == 0{
 				isPrime = false
 				break
 			}
@@ -67,11 +67,11 @@ func primeNumbers(max int) []int{
 func sumOfPrimeNumbers(n int) int{
 	var primes int
 
-	for i:=2; i< n; i++{
+	for i:=2; i<= n; i++{
 		isPrime := true
 
 		for j:=2; j <= int(math.Sqrt(float64(i))); j++{
-			if i%2 == 0{
+			if i%j == 0{
 				isPrime = false
 				break
 			}
