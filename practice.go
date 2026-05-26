@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"strings"
 )
 
@@ -44,9 +45,29 @@ func countWords(word string) map[string]int {
 	return count
 }
 
+func primeNumbers(max int) []int{
+	var primes []int
+
+	for i:= 2 ; i < max; i++{
+		isPrime := true
+
+		for j:= 2; j <= int(math.Sqrt(float64(i))); j++{
+			if i % 2 == 0{
+				isPrime = false
+				break
+			}
+		}
+		if isPrime{
+			primes = append(primes, i)
+		}
+	}
+	return primes
+}
+
 func main() {
 	fmt.Println("---------------Multiplication Table -------------")
-	printMultiplicationGridGrid(12)
+
+	printMultiplicationGrid(12)
 
 	fmt.Println("--------------------------------")
 	person := Student{
@@ -73,6 +94,9 @@ func main() {
 	fmt.Println("--------------------------")
 	word := "the cat sat on the mat the cat"
 	fmt.Println(countWords(word))
-	fmt.Printf("unique word: %d", len(word))
+	fmt.Printf("unique word: %d\n", len(word))
+
+	fmt.Println("-------Prime Numbers------")
+	fmt.Println(primeNumbers(10))
 
 }
