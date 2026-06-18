@@ -38,15 +38,13 @@ func toDecimal(word string, base int) string {
 	if err != nil {
 		return original
 	}
-	if negative{
+	if negative {
 		data = -data
 	}
 
 	return strconv.Itoa(int(data))
 
 }
-	
-
 
 func main() {
 	fmt.Println(hexToDecimal("1E"))
@@ -56,7 +54,6 @@ func main() {
 	fmt.Println(binToDecimal("10"))
 	fmt.Println(binToDecimal("1101"))
 	fmt.Println(binToDecimal("999"))
-
 
 	fmt.Println(toDecimal("10", 2))
 	fmt.Println(toDecimal("0644", 8))

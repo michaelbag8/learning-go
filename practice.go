@@ -45,38 +45,38 @@ func countWords(word string) map[string]int {
 	return count
 }
 
-func primeNumbers(max int) []int{
+func primeNumbers(max int) []int {
 	var primes []int
 
-	for i:= 2 ; i < max; i++{
+	for i := 2; i < max; i++ {
 		isPrime := true
 
-		for j:= 2; j <= int(math.Sqrt(float64(i))); j++{
-			if i % j == 0{
+		for j := 2; j <= int(math.Sqrt(float64(i))); j++ {
+			if i%j == 0 {
 				isPrime = false
 				break
 			}
 		}
-		if isPrime{
+		if isPrime {
 			primes = append(primes, i)
 		}
 	}
 	return primes
 }
 
-func sumOfPrimeNumbers(n int) int{
+func sumOfPrimeNumbers(n int) int {
 	var primes int
 
-	for i:=2; i<= n; i++{
+	for i := 2; i <= n; i++ {
 		isPrime := true
 
-		for j:=2; j <= int(math.Sqrt(float64(i))); j++{
-			if i%j == 0{
+		for j := 2; j <= int(math.Sqrt(float64(i))); j++ {
+			if i%j == 0 {
 				isPrime = false
 				break
 			}
 		}
-		if isPrime{
+		if isPrime {
 			primes += i
 		}
 	}
@@ -117,7 +117,6 @@ func main() {
 
 	fmt.Println("-------Prime Numbers------")
 	fmt.Println(primeNumbers(20))
-
 
 	fmt.Println("----Sum of Prime of Numbers----")
 	fmt.Println(sumOfPrimeNumbers(20))

@@ -24,10 +24,10 @@ func fixArticle(s string) string {
 	sd := strings.Fields(s)
 	vowels := "aeiuohAEIOUH"
 	for i := 0; i < len(sd)-1; i++ {
-		if sd[i] == "a" ||sd[i] == "A" && strings.ContainsRune(vowels, rune(sd[i+1][0])) {
-			if sd[i] == "A"{
+		if sd[i] == "a" || sd[i] == "A" && strings.ContainsRune(vowels, rune(sd[i+1][0])) {
+			if sd[i] == "A" {
 				sd[i] = "An"
-			}else{
+			} else {
 				sd[i] = "an"
 			}
 		}
@@ -87,9 +87,10 @@ func binToDec(str string) (int64, error) {
 	}
 	return con, nil
 }
+
 // classifying characters
 func classifyChar(str string) string {
-	if len(str) != 1 {                  
+	if len(str) != 1 {
 		return "invalid"
 	}
 	ch := rune(str[0])
@@ -106,6 +107,7 @@ func classifyChar(str string) string {
 	}
 
 }
+
 // Hexedecimal to base 10
 func hexToDec(str string) (int64, error) {
 	con, err := strconv.ParseInt(str, 16, 64)
@@ -124,6 +126,7 @@ func isInstruction(str string) bool {
 		return false
 	}
 }
+
 // Calling all the functions
 func main() {
 	ds := "Welcome Mr a apple, you came with Mr a orange at a hour that is not suitable for Mr a umbralla"
@@ -148,7 +151,7 @@ func main() {
 	fmt.Println(isInstruction("(up)"))
 	fmt.Println(isInstruction("(low)"))
 	fmt.Println(isInstruction("(zxy)"))
-	
+
 	fmt.Println(classifyChar("#"))
 	fmt.Println(classifyChar("!"))
 	fmt.Println(classifyChar("8"))

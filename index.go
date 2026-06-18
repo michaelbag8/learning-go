@@ -6,7 +6,6 @@ import (
 	"unicode"
 )
 
-
 // vowels count
 func vowelCount(word string) int {
 	count := 0
@@ -21,7 +20,6 @@ func vowelCount(word string) int {
 	return count
 }
 
-
 // words count
 func wordsCount(word string) int {
 	count := 0
@@ -31,18 +29,18 @@ func wordsCount(word string) int {
 	return count
 }
 
-// words count 
+// words count
 func WordCount(word string) int {
 	words := strings.Fields(word)
 	return len(words)
 }
 
-//uppercase
+// uppercase
 func upperCase(word string) string {
 	return strings.ToUpper(word)
 }
 
-//capitalize each word
+// capitalize each word
 func capitalize(word string) string {
 	words := strings.Fields(word)
 	for i, ch := range words {
@@ -57,7 +55,7 @@ func capitalize(word string) string {
 	return strings.Join(words, " ")
 }
 
-//check for palindrome
+// check for palindrome
 func checkPalindrone(word string) string {
 	if word == reverse(word) {
 		return "It is a palindrome"
@@ -65,7 +63,7 @@ func checkPalindrone(word string) string {
 	return "Not a palindrome"
 }
 
-//reverse a string
+// reverse a string
 func reverse(word string) string {
 	runes := []rune(word)
 	for l, r := 0, len(runes)-1; l < r; l, r = l+1, r-1 {
@@ -77,7 +75,7 @@ func reverse(word string) string {
 // textanlyzer
 func analyzeText(word string) (int, int, string) {
 	countVowel := 0
-	
+
 	words := strings.Fields(word)
 
 	countWords := len(words)

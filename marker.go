@@ -11,7 +11,7 @@ func makerPrint(word string) int {
 	word = strings.ReplaceAll(word, ", ", ",")
 
 	words := strings.Fields(word)
-	
+
 	for i := 0; i < len(words); i++ {
 
 		if strings.HasPrefix(words[i], "(") && strings.HasSuffix(words[i], ")") {
@@ -72,7 +72,6 @@ func maker(word string) string {
 
 }
 
-
 func main() {
 	word := "This is so exciting (up,4)"
 
@@ -82,4 +81,3 @@ func main() {
 	fmt.Println(maker("This is so exciting so big so small (up, 3)"))
 
 }
-

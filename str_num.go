@@ -62,7 +62,6 @@ func extractNum(str string) string {
 func compressChar(str string) string {
 	var result strings.Builder
 	counter := 1
-
 	for i := 1; i < len(str); i++ {
 		if str[i] == str[i-1] {
 			counter++
@@ -72,7 +71,13 @@ func compressChar(str string) string {
 				result.WriteString(strconv.Itoa(counter))
 			}
 			counter = 1
+
 		}
+
+	}
+	result.WriteByte(str[len(str)-1])
+	if counter > 1 {
+		result.WriteString(strconv.Itoa(counter))
 	}
 	return result.String()
 }
@@ -91,5 +96,3 @@ func main() {
 	fmt.Println(compressChar("aaaaabcccccccccdeeeee"))
 
 }
-
-

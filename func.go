@@ -7,7 +7,7 @@ import (
 	"unicode"
 )
 
-//(up)
+// (up)
 func upperLastWord(word []string) []string {
 	for i := 0; i < len(word); i++ {
 		if word[i] == "(up)" {
@@ -22,7 +22,7 @@ func upperLastWord(word []string) []string {
 	return word
 }
 
-//(up,3)
+// (up,3)
 func toUpperLastWord(words []string) []string {
 	for i := 0; i < len(words); i++ {
 		if words[i] == "(up)" {
@@ -55,8 +55,7 @@ func toUpperLastWord(words []string) []string {
 	return words
 }
 
-
-//fix article
+// fix article
 func fixArticle(word string) string {
 	words := strings.Fields(word)
 	vowels := "aeiouhAEIOUH"
@@ -74,14 +73,13 @@ func fixArticle(word string) string {
 
 }
 
-//checking for puntuation
+// checking for puntuation
 func isPunctuation(word string) bool {
 	charset := ";,.!:"
 	return strings.ContainsAny(word, charset)
 }
 
-
-//removing puntuation
+// removing puntuation
 func removePuntuation(word []string) string {
 	var result strings.Builder
 	for i, ch := range word {
@@ -98,7 +96,7 @@ func removePuntuation(word []string) string {
 	return result.String()
 }
 
-//upper case the base on n
+// upper case the base on n
 func upperLastN(word []string, n int) []string {
 	for i := len(word) - n; i < len(word); i++ {
 		if n < 0 {
@@ -110,28 +108,28 @@ func upperLastN(word []string, n int) []string {
 
 }
 
-//convert to base
+// convert to base
 func ConvertNumbers(words []string) []string {
-	for i:= 0; i < len(words); i++{
-		if words[i] == "(hex)" && i > 0{ 
-			n, err := strconv.ParseInt(words[i-1],16,64)
-			if err == nil{
+	for i := 0; i < len(words); i++ {
+		if words[i] == "(hex)" && i > 0 {
+			n, err := strconv.ParseInt(words[i-1], 16, 64)
+			if err == nil {
 				words[i-1] = strconv.FormatInt(n, 10)
 			}
 			words = append(words[:i], words[i+1:]...)
 			i--
 			continue
-			
+
 		}
-		if words[i] == "(bin)" && i > 0{
-			n, err := strconv.ParseInt(words[i-1], 2,64)
-			if err == nil{
+		if words[i] == "(bin)" && i > 0 {
+			n, err := strconv.ParseInt(words[i-1], 2, 64)
+			if err == nil {
 				words[i-1] = strconv.FormatInt(n, 10)
 			}
 			words = append(words[:i], words[i+1:]...)
 			i--
 		}
-		
+
 	}
 
 	return words
@@ -166,10 +164,10 @@ func main() {
 
 	fmt.Println(removePuntuation([]string{"hello", ",", "world"}))
 	fmt.Println("----------------------------")
-  
+
 	fmt.Println(fixArticle("this is a orange in the a hour of need"))
 	fmt.Println("----------------------------")
-  
+
 	word := []string{"hello", "come", "down", "(up)"}
 	wordz := []string{"hello", "(up)", "down"}
 	wordx := []string{"hello", "rise", "down", "got", "wanted", "okay"}
